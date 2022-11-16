@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div>
+<iframe src="{{ url_video }}" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
+</div>
+<div>
+  {% for comment in comments %}
+    <h3>{{ comment.usuario }} : </h3>
+    <h5>{{ comment.comentario }}</h5>
+  {% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Públicos</h1>
+{% for video in videos_pub %}
+<a href="{{ video.link }}">{{ video.titulo }}</a>
+{% endfor %}
+<br>
+{%if user.is_authenticated %}
+<h1>Privados</h1>
+{% for video in videos_priv %}
+<a href="{{ video.link }}">{{ video.titulo }}</a>
+{% endfor %}
+{% endif %}
+</body>
+</html>

@@ -2,15 +2,15 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block body %}
-{% if user.is_authenticated %}
+<aside>
+    <ul>
+        <li><p><a href="{% url 'lista_videos' %}" target="iframe_a">Videos</a></p></li>
+        {% if user.is_authenticated %}
+        <li><p><a href="{% url 'novo_video' %}" target="iframe_a">Upload de video</a></p></li>
+        {% endif %}
+    </ul>
+</aside>
 
-{% else %}
-    <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                    <label class="h4 pt-5">Por favor faça o login para ter acesso aos videos</label>
-                </div>
-            </div>
-    </div>
-{% endif %}
+<iframe src="demo_iframe.htm" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
+
 {% endblock %}

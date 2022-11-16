@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form method="post" action="">
+  {% csrf_token %}
+  <div class="form-group">
+      <label for="titulo">Título: </label>
+      <input type="text" class="form-control" name="titulo" value="" id="titulo">
+  </div>
+  <div class="form-group">
+      <label for="descricao">Descrição: </label>
+      <input type="text" class="form-control" name="descricao" value="" id="descricao">
+  </div>
+  <div class="form-group">
+      <label for="link">Link do video:</label>
+      <input type="text" class="form-control" name="link" value="" id="link">
+  </div>
+  <div class="form-group">
+      <label for="publico">Público:</label>
+      <input type="checkbox" class="form-control" name="publico" id="publico" checked>
+  </div>
+
+  <button type="submit" class="btn btn-default">Salvar</button>
+</form>
+
+</body>
+</html>
