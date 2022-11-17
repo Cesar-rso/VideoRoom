@@ -9,13 +9,13 @@ from .forms import *
 
 
 @xframe_options_exempt
-def index(request):
+def index(request):  # Página inicial
     context = {}
 
     return render(request, 'index.html', context)
 
 
-def home(request):
+def home(request):  # Mensagem de boas vindas da página inicial
     context = {}
 
     return render(request, 'home.html', context)
@@ -48,13 +48,13 @@ def exibe_video(request, video_id):
     video.views += 1
     video.save()
     link = video.link
-    if 'v=' in link:
+    if 'v=' in link:  # Extraindo id do video, caso url esteja no formato watch?v=id
         link = link.split('v=')[1]
         if '&' in link:
             link = link.split('&')[0]
         link = 'https://www.youtube.com/embed/' + link
 
-    if 'youtu.be' in link:
+    if 'youtu.be' in link:  # Extraindo id do video, caso url esteja no formato youtu.be/id
         link = link.split('/')[-1]
         link = 'https://www.youtube.com/embed/' + link
 
@@ -89,12 +89,12 @@ def salva_comentario(request):
         return redirect('exibe_comentarios', video_id)
 
 
-def signup(request):
+def signup(request):  # Chamada para a página de cadastro de usuário
     context = {}
     return render(request, 'signup.html', context)
 
 
-def register(request):
+def register(request):  # função para salvar novo usuário no sistema
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -106,7 +106,7 @@ def register(request):
         return redirect('index')
 
 
-def login_request(request):
+def login_request(request):  # função para login do usuário
     context = {}
     if request.method == 'POST':
         username = request.POST['username']
@@ -123,6 +123,6 @@ def login_request(request):
             return render(request, 'error.html', context)
 
 
-def logout_request(request):
+def logout_request(request):  # função para logout do usuário
     logout(request)
     return redirect('index')
