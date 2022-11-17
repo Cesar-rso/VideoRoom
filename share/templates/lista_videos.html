@@ -6,13 +6,13 @@
 <body>
 <h1>Públicos</h1>
 {% for video in videos_pub %}
-<a href="{{ video.link }}">{{ video.titulo }}</a>
+<a href="{% url 'exibe_video' video.id %}">{{ video.titulo }}</a>
 {% endfor %}
 <br>
 {%if user.is_authenticated %}
 <h1>Privados</h1>
 {% for video in videos_priv %}
-<a href="{{ video.link }}">{{ video.titulo }}</a>
+<a href="{% url 'exibe_video' video.id %}">{{ video.titulo }}</a>
 {% endfor %}
 {% endif %}
 </body>

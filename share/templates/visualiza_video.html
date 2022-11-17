@@ -7,11 +7,25 @@
 <div>
 <iframe src="{{ url_video }}" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
 </div>
+<div><h2>Visualizações: </h2> {{ views }}</div>
 <div>
-  {% for comment in comments %}
-    <h3>{{ comment.usuario }} : </h3>
-    <h5>{{ comment.comentario }}</h5>
+  {% for item in comentarios %}
+    <h3>{{ item.usuario }} : </h3>
+    <h5>{{ item.comentario }}</h5>
   {% endfor %}
+    {% if user.is_authenticated %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="comentario" value="">
+        </div>
+
+        <div>
+            <input type="hidden" name="usuario" value="{{ user.id }}">
+        </div>
+        <button type="submit" class="btn btn-default">Salvar</button>
+    </form>
+    {% endif %}
 </div>
 </body>
 </html>
