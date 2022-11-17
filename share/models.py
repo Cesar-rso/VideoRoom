@@ -19,5 +19,5 @@ class Comentario (models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.DO_NOTHING,
     )
-    video = models.ForeignKey(Video)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
     comentario = models.CharField(max_length=500)

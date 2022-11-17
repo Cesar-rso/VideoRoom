@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div>
+  {% for item in comentarios %}
+    <h3>{{ item.usuario }} : </h3>
+    <h5>{{ item.comentario }}</h5>
+  {% endfor %}
+    {% if user.is_authenticated %}
+    <form method="post" action="salva_comentario">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="comentario" value="">
+        </div>
+
+        <div>
+            <input type="hidden" name="usuario" value="{{ user.id }}">
+        </div>
+        <div>
+            <input type="hidden" name="video_id" value="{{ video_id }}">
+        </div>
+        <button type="submit" class="btn btn-default">Salvar</button>
+    </form>
+    {% endif %}
+</div>
+</body>
+</html>
