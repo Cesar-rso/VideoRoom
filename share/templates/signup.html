@@ -2,17 +2,24 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block body %}
-<form role="signup" method="post" action="register">
+<form role="signup" method="post" action="register" >
   {% csrf_token %}
+  <section style="float: left; padding: 10px;">
   <div class="form-group">
+    <label>Usuário</label>
       <input type="text" class="form-control" name="username" value="">
   </div>
     <div class="form-group">
+      <label>Email</label>
       <input type="email" class="form-control" name="email" value="">
   </div>
+  </section>
+  <section style="float: left; padding: 10px;">
   <div class="form-group">
-      <input type="password" class="form-control" name="password" value="">
+    <label>Senha</label>
+      <input type="password" class="form-control" name="password" value="" width="200px">
   </div>
-  <button type="submit" class="btn btn-default">Salvar</button>
+  <button type="submit" class="btn btn-default" style="background: lightgray; padding: 20px;">Salvar</button>
+  </section>
 </form>
 {% endblock %}

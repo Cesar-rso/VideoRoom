@@ -3,21 +3,29 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.views.generic import CreateView
+from django.views.decorators.clickjacking import xframe_options_exempt
 from .models import *
 from .forms import *
 
 
+@xframe_options_exempt
 def index(request):
     context = {}
 
     return render(request, 'index.html', context)
 
 
+def home(request):
+    context = {}
+
+    return render(request, 'home.html', context)
+
+
 class SalvarVideo(CreateView):
     model = Video
     form_class = NovoVideoForm
     template_name = 'novo_video_form.html'
-    success_url = reverse_lazy('lista_video')
+    success_url = reverse_lazy('lista_videos')
 
 
 def lista_videos(request):
@@ -32,6 +40,7 @@ def lista_videos(request):
     return render(request, 'lista_videos.html', context)
 
 
+@xframe_options_exempt
 def exibe_video(request, video_id):
     context = {}
 

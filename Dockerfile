@@ -19,6 +19,6 @@ RUN python3 manage.py makemigrations
 RUN python3 manage.py migrate
 RUN chmod +x ./startup.sh
 
-USER app
+# USER app
 
 CMD ["./startup.sh"]

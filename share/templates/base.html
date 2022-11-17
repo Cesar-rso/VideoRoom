@@ -18,16 +18,24 @@
 {% if not user.is_authenticated %}
         <form class="navbar-form navbar-left" role="login" method="post" action="login">
              {% csrf_token %}
+            <aside style="float:left; padding:5px;">
                 <div class="form-group">
+                    <label>Usuario</label>
                     <input type="text" class="form-control" name="username" value="">
                 </div>
+            </aside>
+            <aside style="float:right; padding:5px;">
                 <div class="form-group">
+                    <label>Senha</label>
                     <input type="password" class="form-control" name="password" value="">
                 </div>
-                <button type="submit" class="btn btn-default">Login</button>
+            </aside>
+            <aside>
+                <button type="submit" class="btn btn-default" style="background: lightgray;">Login</button>
+            </aside>
         </form>
         <form class="navbar-form navbar-right" method="get" action="signup">
-            <button type="submit" class="btn btn-default" name="signup">Sign Up</button>
+            <button type="submit" class="btn btn-default" name="signup" style="background: lightgray;">Sign Up</button>
         </form>
 {% else %}
         <form class="navbar-form navbar-right" role="logout" method="post" action="logout">
@@ -36,7 +44,7 @@
                     <h2>Olá, {{ user.username }} </h2>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Logout</button>
+                    <button type="submit" class="btn btn-default" style="background: lightgray;">Logout</button>
                 </div>
         </form>
 {% endif %}

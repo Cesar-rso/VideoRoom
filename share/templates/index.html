@@ -3,14 +3,16 @@
 {% block title %}Home{% endblock %}
 {% block body %}
 <aside>
-    <ul>
+    <nav style="float:left; width: 10%; background: #ccc; padding: 20px;">
+    <ul style="list-style-type: none; padding: 0;">
         <li><p><a href="{% url 'lista_videos' %}" target="iframe_a">Videos</a></p></li>
         {% if user.is_authenticated %}
         <li><p><a href="{% url 'novo_video' %}" target="iframe_a">Upload de video</a></p></li>
         {% endif %}
     </ul>
+    </nav>
 </aside>
-
-<iframe src="{% static 'share/home.html' %}" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
-
+<section style="float:right; width:90%">
+<iframe src="{% url 'home' %}" name="iframe_a" height="750px" width="100%" title="Iframe Example"></iframe>
+</section>
 {% endblock %}

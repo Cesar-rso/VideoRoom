@@ -7,7 +7,10 @@
 <div>
 <iframe src="{{ url_video }}" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
 </div>
-<div><h2>Visualizações: </h2> {{ views }}</div>
+<div>
+    <section style="float: left; padding: 5px;"><h2>Visualizações: </h2> </section>
+    <section style="float: left; padding: 30px;">{{ views }}</section>
+</div>
 <div>
   <iframe src="{% url 'exibe_comentarios' video_id %}" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
 </div>
