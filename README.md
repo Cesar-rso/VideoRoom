@@ -1,5 +1,5 @@
 # VideoRoom
-Salas de compartilhamento de video
+Salas de compartilhamento de video do youtube
 
 Projeto em Django. Necessário ter python 3.10 instalado.
 
